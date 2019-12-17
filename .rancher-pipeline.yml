@@ -2,8 +2,8 @@ timeout: 60
 branch: {}
 notification:
   recipients:
-  - recipient: '#homelab-monitoring'
-    notifier: c-rdgf2:n-ppl64
+  - recipient: '#homelab'
+    notifier: local:n-ktlqv
   condition:
   - Success
   - Changed

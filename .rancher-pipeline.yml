@@ -34,8 +34,13 @@ stages:
 - name: 'Deploy frontend '
   steps:
   - applyAppConfig:
-      catalogTemplate: p-sv7dz:homelab-pilot
-      version: 0.1.0
+      catalogTemplate: cattle-global-data:homelab-pilot
+      version: 0.1.1
+      answers:
+        DATABASE_HOST: '"pilot-db-postgresql.pilot.svc.cluster.local"'
+        DATABASE_NAME: '"postgres"'
+        DATABASE_PORT: "5432"
+        DATABASE_USER: '"postgres"'
       name: pilot-frontend
       targetNamespace: pilot
 timeout: 60

@@ -7,6 +7,35 @@ stages:
       tag: yas51ne/${CICD_GIT_REPO_NAME}/homelab-pilot-frontend:${CICD_GIT_COMMIT}
       pushRemote: true
       registry: docker.pkg.github.com
+- name: Deploy requirements
+  steps:
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:helm-postgresql
+      version: 8.1.0
+      name: pilot-db
+      targetNamespace: pilot
+  - publishCatalogConfig:
+      path: ./HELMs/pilot/
+      catalogTemplate: pilot
+      version: 0.1.1
+      gitUrl: https://github.com/yas51ne/charts.git
+      gitBranch: master
+      gitAuthor: Yassine MAACHI
+      gitEmail: ymaachi@yassinemaachi.com
+    envFrom:
+    - sourceName: homelab-github-access
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: homelab-github-access
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
+- name: 'Deploy frontend '
+  steps:
+  - applyAppConfig:
+      catalogTemplate: p-sv7dz:homelab-pilot
+      version: 0.1.0
+      name: pilot-frontend
+      targetNamespace: pilot
 timeout: 60
 notification:
   recipients:

@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: ${CICD_GIT_REPO_NAME}/pilot:${CICD_GIT_COMMIT}
       pushRemote: true
-      registry: 127.0.0.1:34853
+      registry: docker.pkg.github.com
 timeout: 60
 notification:
   recipients:

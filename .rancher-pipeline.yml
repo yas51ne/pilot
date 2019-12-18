@@ -1,9 +1,17 @@
+stages:
+- name: Build & Push
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: ${CICD_GIT_REPO_NAME}/pilot:${CICD_GIT_COMMIT}
+      pushRemote: true
+      registry: 127.0.0.1:34853
 timeout: 60
-branch: {}
 notification:
   recipients:
-  - recipient: '#homelab'
-    notifier: local:n-ktlqv
+  - recipient: '#homelab-development'
+    notifier: c-m8vp6:n-z5t47
   condition:
   - Success
   - Changed

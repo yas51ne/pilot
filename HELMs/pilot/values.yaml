@@ -35,7 +35,8 @@ env:
   DATABASE_PORT: 5432
   DATABASE_NAME: "postgres"
   DATABASE_USER: "postgres"
-  DATABASE_PASSWORD: ""
+  DATABASE_PASSWORD: "4288c04deacde262f708"
+
 service:
   type: ClusterIP
   port: 80

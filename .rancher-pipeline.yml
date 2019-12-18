@@ -12,6 +12,8 @@ stages:
   - applyAppConfig:
       catalogTemplate: cattle-global-data:helm-postgresql
       version: 8.1.0
+      answers:
+        global.storageClass: csi-sc-cinderplugin-resize
       name: pilot-db
       targetNamespace: pilot
   - publishCatalogConfig:

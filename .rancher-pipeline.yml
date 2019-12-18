@@ -7,6 +7,12 @@ stages:
       tag: yas51ne/${CICD_GIT_REPO_NAME}/homelab-pilot-frontend:${CICD_GIT_COMMIT}
       pushRemote: true
       registry: docker.pkg.github.com
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: yas51ne/${CICD_GIT_REPO_NAME}/homelab-pilot-frontend:latest
+      pushRemote: true
+      registry: docker.pkg.github.com
 - name: Deploy requirements
   steps:
   - applyAppConfig:
@@ -41,6 +47,7 @@ stages:
         DATABASE_NAME: '"postgres"'
         DATABASE_PORT: "5432"
         DATABASE_USER: '"postgres"'
+        image.tag: latest
       name: pilot-frontend
       targetNamespace: pilot
 timeout: 60

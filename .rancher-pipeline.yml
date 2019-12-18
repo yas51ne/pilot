@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: ${CICD_GIT_REPO_NAME}/pilot:${CICD_GIT_COMMIT}
+      tag: yas51ne/${CICD_GIT_REPO_NAME}/homelab-pilot-frontend:${CICD_GIT_COMMIT}
       pushRemote: true
       registry: docker.pkg.github.com
 timeout: 60

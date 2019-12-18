@@ -9,7 +9,8 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-imagePullSecrets: []
+imagePullSecrets: 
+  - name: homelab-docker-pkg-github
 nameOverride: ""
 fullnameOverride: ""
 

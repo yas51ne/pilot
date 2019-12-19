@@ -13,7 +13,7 @@ stages:
       catalogTemplate: cattle-global-data:helm-postgresql
       version: 8.1.0
       answers:
-        POSTGRESQL_PASSWORD: c04deDcde262f70K
+        POSTGRES_PASSWORD: c04deDcde262f70K
         global.storageClass: csi-sc-cinderplugin-resize
       name: pilot-db
       targetNamespace: pilot

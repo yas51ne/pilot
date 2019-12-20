@@ -11,6 +11,6 @@ class Config:
         self.DATABASE_NAME = os.environ.get("DATABASE_NAME", "postgres")
         self.DATABASE_USER = os.environ.get("DATABASE_USER", "postgres")
         self.DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD", "")
-
+        self.SERVER_URL = os.environ.get("SERVER_URL", "pilot-frontend.pilot.svc.cluster.local")
     def __str__(self) -> str:
         return str(self.__dict__)

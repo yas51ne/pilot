@@ -42,7 +42,7 @@ stages:
         DATABASE_NAME: 'postgres'
         DATABASE_PORT: 5432
         DATABASE_USER: 'postgres'
-        DATABASE_PASSWORD: 'c04deDcde262f70K'
+        DATABASE_PASSWORD: c04deDcde262f70K
         image.tag: ${CICD_GIT_COMMIT}
       name: pilot-frontend
       targetNamespace: pilot

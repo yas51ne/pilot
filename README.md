@@ -1,2 +1,2 @@
 # pilot
-example repository templagte for homelab project
+example repository template for homelab project

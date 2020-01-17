@@ -11,7 +11,7 @@ stages:
   steps:
   - applyAppConfig:
       catalogTemplate: cattle-global-data:helm-postgresql
-      version: 8.1.0
+      version: 8.1.4
       answers:
         global.postgresql.postgresqlPassword: c04deDcde262f70K
         global.storageClass: csi-sc-cinderplugin-resize
@@ -32,17 +32,17 @@ stages:
     - sourceName: homelab-github-access
       sourceKey: PASSWORD
       targetKey: PASSWORD
-- name: 'Deploy frontend'
+- name: Deploy frontend
   steps:
   - applyAppConfig:
       catalogTemplate: cattle-global-data:homelab-pilot
       version: 0.1.1
       answers:
-        DATABASE_HOST: 'pilot-db-postgresql.pilot.svc.cluster.local'
-        DATABASE_NAME: 'postgres'
-        DATABASE_PORT: 5432
-        DATABASE_USER: 'postgres'
+        DATABASE_HOST: pilot-db-postgresql.pilot.svc.cluster.local
+        DATABASE_NAME: postgres
         DATABASE_PASSWORD: c04deDcde262f70K
+        DATABASE_PORT: "5432"
+        DATABASE_USER: postgres
         image.tag: ${CICD_GIT_COMMIT}
       name: pilot-frontend
       targetNamespace: pilot
